@@ -2,6 +2,7 @@ import {
   Navigate,
     createBrowserRouter,
   } from "react-router-dom";
+import ErrorPage from "../Layout/ErrorPage";
 import LoginLayout from "../Layout/LoginLayout";
 import Main from "../Layout/Main";
 import Home from "../pages/Home/Home/Home";
@@ -13,6 +14,7 @@ import Register from "../pages/Login/Register/Register";
     {
       path:'/',
       element: <LoginLayout></LoginLayout>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
           path:'/',
