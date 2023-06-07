@@ -1,18 +1,40 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo1.png';
+import { FaUser } from "react-icons/fa";
+import { AuthContext } from '../../../providers/AuthProvider';
 import './NavBar.css';
 
 const NavBar = () => {
 
+  const {user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+    .then()
+    .catch(error => console.log(error))
+  }
+
   const navOptions = <>
-    <li><Link to="/">Home</Link></li>
-    <li><Link to="/menu">Menu</Link></li>
-    <li><Link to="">Order</Link></li>
+    <li><Link to="/home">Home</Link></li>
+    <li><Link to="/instructors">Instructors</Link></li>
+    <li><Link to="/classes">Classes</Link></li>
+    
+
+    {user?.email ? <>
+      <li><Link to="/dashboard">Dashboard</Link></li>
+    </>
+    :
+    <Link to='/login'>
+
+    </Link>
+
+    }
     
   </>
     return (
         <>
-            <div className="navbar max-w-screen-xl fixed z-10 bg-opacity-30 bg-black text-white">
+            <div className="navbar max-w-screen-xl fixed z-10 bg-opacity-30 bg-black text-white mb-5">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -30,7 +52,19 @@ const NavBar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Get started</a>
+    {
+            
+            user?.photoURL ?<img src={user.photoURL} className=" user-img rounded-full me-2 " alt="" title={user.displayName} />:<FaUser className='user-img rounded-full me-2 text-3xl'></FaUser>
+           }
+          {user?
+            
+          <button onClick={handleLogOut} className="btn btn-primary">Logout</button>
+          
+             :
+            <Link to="/login">
+              <button className="btn bg-purple-500">Login</button>
+            </Link>
+          }
   </div>
 </div>
         </>
