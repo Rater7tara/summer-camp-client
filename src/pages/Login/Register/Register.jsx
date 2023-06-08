@@ -3,6 +3,9 @@ import { useNavigate, Link, } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import './Register.css';
+import "@lottiefiles/lottie-player";
+import sign from '../../../assets/sign.json';
+import Lottie from "lottie-react";
 
 
 const Register = () => {
@@ -58,66 +61,78 @@ const Register = () => {
 
             </Helmet>
 
-            <form className='form md:w-2/4 sm:w-full bg-blue-100 p-10' onSubmit={handleRegister}>
-                <h2 className="text-3xl font-extrabold text-center mt-2 mb-2">Please Register</h2>
-                {/* form toy name and row */}
-                <div className="md:flex mb-6">
-                    <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Name</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="name" placeholder="Name"
-                                required className="input input-bordered w-full" />
-                        </label>
+            <div className="hero min-h-screen bg-base-200">
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    <div className="text-center lg:text-left">
+                        <Lottie animationData={sign} loop={true} />
                     </div>
+
+                    <form className='w-full' onSubmit={handleRegister}>
+                        <h1 className="text-5xl font-bold mb-5">Please Register!</h1>
+                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                            <div className="card-body">
+
+                                <div className="md:flex mb-6">
+                                    <div className="form-control w-full">
+                                        <label className="label">
+                                            <span className="label-text">Name</span>
+                                        </label>
+                                        <label className="input-group">
+                                            <input type="text" name="name" placeholder="Name"
+                                                required className="input input-bordered w-full" />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div className="md:flex mb-6">
+                                    <div className="form-control w-full">
+                                        <label className="label">
+                                            <span className="label-text">Email Address</span>
+                                        </label>
+                                        <label className="input-group">
+                                            <input type="email" name="email" id="" placeholder='Email'
+                                                required className="input input-bordered w-full" />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div className="md:flex mb-6">
+                                    <div className="form-control w-full">
+                                        <label className="label">
+                                            <span className="label-text">Photo URL</span>
+                                        </label>
+                                        <label className="input-group">
+                                            <input type="photo" name="photo" id="" placeholder='Photo URL'
+                                                required
+                                                className="input input-bordered w-full" />
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div className="md:flex mb-6">
+                                    <div className="form-control w-full">
+                                        <label className="label">
+                                            <span className="label-text">Password</span>
+                                        </label>
+                                        <label className="input-group">
+                                            <input type="password" name="password" placeholder="Password" required className="input input-bordered w-full" />
+                                        </label>
+
+                                    </div>
+                                </div>
+
+
+                                <input type="submit" value="Register" className="btn btn-primary btn-block" />
+
+                                <div className=" mt-4">
+                                    <span className='text-centered mb-4'>Already Have an Account?</span><br /> <Link to='/login' className='btn btn-info w-full mt-4'>Login</Link>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </form>
                 </div>
-                {/* form seller row */}
-                <div className="md:flex mb-6">
-                    <div className="form-control md:w-1/2 ">
-                        <label className="label">
-                            <span className="label-text">Email Address</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="email" name="email" id="" placeholder='Email'
-                                required className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control md:w-1/2 ml-4">
-                        <label className="label">
-                            <span className="label-text">Photo URL</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="photo" name="photo" id="" placeholder='Photo URL'
-                                required
-                                className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                </div>
-                <div className="md:flex mb-6">
-                    <div className="form-control w-full">
-                        <label className="label">
-                            <span className="label-text">Password</span>
-                        </label>
-                        <label className="input-group">
-                            <input type="password" name="password" placeholder="Password" required className="input input-bordered w-full" />
-                        </label>
-
-                    </div>
-                </div>
-
-
-                <input type="submit" value="Register" className="btn bg-purple-500 btn-block" />
-
-                <div className=" mt-4">
-                    <span className='text-centered mb-4'>Already Have an Account?</span><br /> <Link to='/login' className='regi-btn btn mt-4'>Login</Link>
-                </div>
-
-            </form>
-
-            <div className='form md:w-1/2 sm:w-full'>
-                <img className='form-img' src={"https://i.ibb.co/vQYcyLs/funny-duck-3d-illustration.jpg"} alt="" />
             </div>
+
         </div>
     );
 };

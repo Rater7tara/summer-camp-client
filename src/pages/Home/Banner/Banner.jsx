@@ -1,26 +1,64 @@
 import React from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import './Banner.css';
+import { Link } from 'react-router-dom';
+
+import img1 from '../../../assets/Banner/banner.png';
+import img2 from '../../../assets/Banner/banner (2).jpg';
+import img3 from '../../../assets/Banner/banner (3).jpg';
+import img4 from '../../../assets/Banner/banner (4).jpg';
+import img5 from '../../../assets/Banner/banner (5).jpg';
+
 
 const Banner = () => {
-    return (
-        <>
-        <div className="hero min-h-screen" style={{backgroundImage: `url("https://i.ibb.co/kBYD98M/ballet-dancer-ties-up-slippers.jpg")`}}>
-  <div className="hero-overlay bg-opacity-60"></div>
-  <div className="hero-content text-center text-neutral-content">
-    <div className="max-w-md">
-      <h3 className="mb-5 text-4xl font-bold text-white">WE'LL TEACH YOU TO</h3>
-      <p className="mb-5 text-9xl font-bold text-white">DANCE</p>
-    </div>
-    
-  </div>
-  
-</div>
-<div className='bg-blue-500 text-center py-6'>
-      <h3 className="mb-5 text-5xl font-bold text-white">Welcome New Students!</h3>
-      <p className='mb-5 text-3xl text-white'>Sign up now to receive a 25-minute taster lesson - completely free!</p>
-      <button className="btn btn-primary">CLICK TO SIGN UP!</button>
+  return (
+    <>
+      <Carousel>
+        <div>
+          <img src={img1} />
+          <div className="legend bg-blue-300">
+            <h3 className="mb-5 text-5xl font-bold text-white">WE'LL TEACH YOU TO</h3>
+            <p className="mb-5 text-9xl font-bold text-white">DANCE</p>
+          </div>
+
+        </div>
+        <div>
+          <img className='banner' src={img2} />
+          <div className="legend">
+          <h3 className="mb-5 text-4xl font-bold text-white">Welcome New Students!</h3>
+        <p className='mb-5 text-2xl text-white'>Sign up now to receive a 25-minute taster lesson - completely free!</p>
+          </div>
+        </div>
+        <div>
+          <img className='banner' src={img3} />
+          <div className="legend">
+            <h3 className="mb-5 text-5xl font-bold text-white">WE'LL TEACH YOU TO</h3>
+            <p className="mb-5 text-9xl font-bold text-white">DANCE</p>
+          </div>
+        </div>
+        <div>
+          <img className='banner' src={img4} />
+          <div className="legend">
+          <h3 className="mb-5 text-4xl font-bold text-white">Welcome New Students!</h3>
+        <p className='mb-5 text-2xl text-white'>Sign up now to receive a 25-minute taster lesson - completely free!</p>
+          </div>
+        </div>
+        <div>
+          <img className='banner' src={img5} />
+          <div className="legend">
+            <h3 className="mb-5 text-5xl font-bold text-white">WE'LL TEACH YOU TO</h3>
+            <p className="mb-5 text-9xl font-bold text-white">DANCE</p>
+          </div>
+        </div>
+      </Carousel>
+      <div className='bg-blue-400 text-center py-6'>
+        <h3 className="mb-5 text-4xl font-bold text-white">Welcome New Students!</h3>
+        <p className='mb-5 text-2xl text-white'>Sign up now to receive a 25-minute taster lesson - completely free!</p>
+        <Link className="btn btn-primary" to='/register'>CLICK TO SIGN UP!</Link>
       </div>
-</>
-    );
+    </>
+  );
 };
 
 export default Banner;
