@@ -1,0 +1,81 @@
+[
+    {
+        "dance_image": "break_dance.jpg",
+        "name": "Break Dance",
+        "id": 1,
+        "instructor_image": "break_dance_instructor.jpg",
+        "instructor_name": "John Smith",
+        "price": "$50",
+        "instructor_email": "john@example.com",
+        "classes_taken": 10,
+        "classes_taken_names": ["Hip Hop", "Street Dance"],
+        "available_seats": 20,
+        "number_of_students": 15
+      },
+      {
+        "dance_image": "couple_dance.jpg",
+        "name": "Couple Dance",
+        "id": 2,
+        "instructor_image": "couple_dance_instructor.jpg",
+        "instructor_name": "Emily Johnson",
+        "price": "$60",
+        "instructor_email": "emily@example.com",
+        "classes_taken": 15,
+        "classes_taken_names": ["Salsa", "Bachata"],
+        "available_seats": 10,
+        "number_of_students": 8
+      },
+      {
+        "dance_image": "disco_dance.jpg",
+        "name": "Disco Dance",
+        "id": 3,
+        "instructor_image": "disco_dance_instructor.jpg",
+        "instructor_name": "David Anderson",
+        "price": "$45",
+        "instructor_email": "david@example.com",
+        "classes_taken": 20,
+        "classes_taken_names": ["Funky Grooves", "70's Disco"],
+        "available_seats": 25,
+        "number_of_students": 18
+      },
+      {
+        "dance_image": "indian_dance.jpg",
+        "name": "Indian Dance",
+        "id": 4,
+        "instructor_image": "indian_dance_instructor.jpg",
+        "instructor_name": "Priya Patel",
+        "price": "$55",
+        "instructor_email": "priya@example.com",
+        "classes_taken": 12,
+        "classes_taken_names": ["Bollywood", "Kathak"],
+        "available_seats": 30,
+        "number_of_students": 25
+      },
+      {
+        "dance_image": "jazz_funk.jpg",
+        "name": "Jazz Funk",
+        "id": 5,
+        "instructor_image": "jazz_funk_instructor.jpg",
+        "instructor_name": "Michael Thompson",
+        "price": "$65",
+        "instructor_email": "michael@example.com",
+        "classes_taken": 18,
+        "classes_taken_names": ["Contemporary Jazz", "Street Jazz"],
+        "available_seats": 15,
+        "number_of_students": 12
+      },
+      {
+        "dance_image": "modern_dance.jpg",
+        "name": "Modern Dance",
+        "id": 6,
+        "instructor_image": "modern_dance_instructor.jpg",
+        "instructor_name": "Sarah Wilson",
+        "price": "$50",
+        "instructor_email": "sarah@example.com",
+        "classes_taken": 22,
+        "classes_taken_names": ["Contemporary", "Lyrical"],
+        "available_seats": 20,
+        "number_of_students": 16
+      }
+      
+]
