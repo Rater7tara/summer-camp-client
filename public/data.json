@@ -1,8 +1,8 @@
 [
     {
-        "dance_image": "break_dance.jpg",
+        "dance_image": "https://i.ibb.co/DCbpGnk/break.jpg",
         "name": "Break Dance",
-        "id": 1,
+        "_id": 1,
         "instructor_image": "break_dance_instructor.jpg",
         "instructor_name": "John Smith",
         "price": "$50",
@@ -10,12 +10,12 @@
         "classes_taken": 10,
         "classes_taken_names": ["Hip Hop", "Street Dance"],
         "available_seats": 20,
-        "number_of_students": 15
+        "number_of_students": 30
       },
       {
-        "dance_image": "couple_dance.jpg",
+        "dance_image": "https://i.ibb.co/zhKvQMC/couple.jpg",
         "name": "Couple Dance",
-        "id": 2,
+        "_id": 2,
         "instructor_image": "couple_dance_instructor.jpg",
         "instructor_name": "Emily Johnson",
         "price": "$60",
@@ -23,12 +23,12 @@
         "classes_taken": 15,
         "classes_taken_names": ["Salsa", "Bachata"],
         "available_seats": 10,
-        "number_of_students": 8
+        "number_of_students": 28
       },
       {
-        "dance_image": "disco_dance.jpg",
+        "dance_image": "https://i.ibb.co/zGtWJ9w/disco.jpg",
         "name": "Disco Dance",
-        "id": 3,
+        "_id": 3,
         "instructor_image": "disco_dance_instructor.jpg",
         "instructor_name": "David Anderson",
         "price": "$45",
@@ -39,9 +39,9 @@
         "number_of_students": 18
       },
       {
-        "dance_image": "indian_dance.jpg",
+        "dance_image": "https://i.ibb.co/V3mmjPf/indian.jpg",
         "name": "Indian Dance",
-        "id": 4,
+        "_id": 4,
         "instructor_image": "indian_dance_instructor.jpg",
         "instructor_name": "Priya Patel",
         "price": "$55",
@@ -52,9 +52,9 @@
         "number_of_students": 25
       },
       {
-        "dance_image": "jazz_funk.jpg",
+        "dance_image": "https://i.ibb.co/Lzk4Qfq/jazzz.jpg",
         "name": "Jazz Funk",
-        "id": 5,
+        "_id": 5,
         "instructor_image": "jazz_funk_instructor.jpg",
         "instructor_name": "Michael Thompson",
         "price": "$65",
@@ -62,12 +62,12 @@
         "classes_taken": 18,
         "classes_taken_names": ["Contemporary Jazz", "Street Jazz"],
         "available_seats": 15,
-        "number_of_students": 12
+        "number_of_students": 16
       },
       {
-        "dance_image": "modern_dance.jpg",
+        "dance_image": "https://i.ibb.co/q9RTTF8/modern.jpg",
         "name": "Modern Dance",
-        "id": 6,
+        "_id": 6,
         "instructor_image": "modern_dance_instructor.jpg",
         "instructor_name": "Sarah Wilson",
         "price": "$50",
@@ -75,7 +75,7 @@
         "classes_taken": 22,
         "classes_taken_names": ["Contemporary", "Lyrical"],
         "available_seats": 20,
-        "number_of_students": 16
+        "number_of_students": 12
       }
       
 ]
