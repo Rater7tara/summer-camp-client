@@ -22,7 +22,7 @@ const Popular = () => {
             <div className='grid md:grid-cols-2  lg:grid-cols-3 gap-4 p-6 '>
             
             {
-               classes.map(item => <PopularClass
+               classes.slice(0, 6)?.map(item => <PopularClass
                key={item._id}
                item={item}
                ></PopularClass>) 

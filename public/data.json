@@ -75,7 +75,84 @@
         "classes_taken": 22,
         "classes_taken_names": ["Contemporary", "Lyrical"],
         "available_seats": 20,
+        "number_of_students": 22
+      },
+      {
+        "dance_image": "https://i.ibb.co/17vFTYc/64bd75e4414ab85ab0e8791683132700-ballet-poses-ballet-danza.jpg",
+        "name": "Ballet Dance",
+        "id": 7,
+        "instructor_image": "https://i.ibb.co/2yh4dLG/360-F-299973420-Sul5-SWPie-Qyxds20-Po-MDfw-JOS5p-Q7-Fv-P.jpg",
+        "instructor_name": "Olivia Thompson",
+        "price": "$70",
+        "instructor_email": "olivia@example.com",
+        "classes_taken": 25,
+        "classes_taken_names": ["Classical Ballet", "Pointe"],
+        "available_seats": 15,
+        "number_of_students": 29
+      },
+      {
+        "dance_image": "https://i.ibb.co/PMymt04/Hip-Hop.png",
+        "name": "Hip Hop",
+        "id": 8,
+        "instructor_image": "https://i.ibb.co/KxKZL79/360-F-224869519-a-Rae-Lneq-ALf-PNBzg0xx-MZXghtv-BXkf-IA.jpg",
+        "instructor_name": "Marcus Johnson",
+        "price": "$55",
+        "instructor_email": "marcus@example.com",
+        "classes_taken": 20,
+        "classes_taken_names": ["Street Dance", "Locking"],
+        "available_seats": 25,
+        "number_of_students": 20
+      },
+      {
+        "dance_image": "https://i.ibb.co/Kj9X9jN/320-12715159-couple-ballroom-dancing.jpg",
+        "name": "Salsa Dance",
+        "id": 9,
+        "instructor_image": "https://i.ibb.co/hR6YHqD/istockphoto-1319763830-612x612.jpg",
+        "instructor_name": "Isabella Ramirez",
+        "price": "$60",
+        "instructor_email": "isabella@example.com",
+        "classes_taken": 15,
+        "classes_taken_names": ["Cuban Salsa", "Salsa Shines"],
+        "available_seats": 20,
+        "number_of_students": 19
+      },
+      {
+        "dance_image": "https://i.ibb.co/ftngRqF/Tap-Dance.jpg",
+        "name": "Tap Dance",
+        "id": 10,
+        "instructor_image": "https://i.ibb.co/HtnKnMp/portrait-young-handsome-man-jean-shirt-smiling-with-crossed-arms.jpg",
+        "instructor_name": "Benjamin Davis",
+        "price": "$50",
+        "instructor_email": "benjamin@example.com",
+        "classes_taken": 12,
+        "classes_taken_names": ["Rhythm Tap", "Broadway Tap"],
+        "available_seats": 15,
+        "number_of_students": 10
+      },
+      {
+        "dance_image": "https://i.ibb.co/xYRVzg3/0135717601890542f7783bd1bbec48bc-spanish-dancer-flamenco-dancers.jpg",
+        "name": "Flamenco",
+        "id": 11,
+        "instructor_image": "https://i.ibb.co/PtP31Xj/cheerful-curly-business-girl-wearing-glasses.jpg",
+        "instructor_name": "Maria Hernandez",
+        "price": "$65",
+        "instructor_email": "maria@example.com",
+        "classes_taken": 18,
+        "classes_taken_names": ["Traditional Flamenco", "Sevillanas"],
+        "available_seats": 12,
+        "number_of_students": 18
+      },
+      {
+        "dance_image": "https://i.ibb.co/tDnsJD1/Contemporary.jpg",
+        "name": "Contemporary",
+        "id": 12,
+        "instructor_image": "https://i.ibb.co/nQ9jLZP/360-F-326985142-1aa-Kc-Ej-MQW6-ULp6o-I9-MYuv8l-N9f8s-Fmj.jpg",
+        "instructor_name": "Daniel Anderson",
+        "price": "$55",
+        "instructor_email": "daniel@example.com",
+        "classes_taken": 20,
+        "classes_taken_names": ["Release Technique", "Graham Technique"],
+        "available_seats": 15,
         "number_of_students": 12
-      }
-      
+      }        
 ]
