@@ -120,10 +120,10 @@ const Register = () => {
                                 </div>
 
 
-                                <input type="submit" value="Register" className="btn btn-primary btn-block" />
+                                <input type="submit" value="Register" className="btn btn-info btn-block" />
 
                                 <div className=" mt-4">
-                                    <span className='text-centered mb-4'>Already Have an Account?</span><br /> <Link to='/login' className='btn btn-info w-full mt-4'>Login</Link>
+                                    <span className='text-centered mb-4'>Already Have an Account?</span><br /> <Link to='/login' className='btn btn-primary w-full mt-4'>Login</Link>
                                 </div>
                             </div>
 

@@ -17,7 +17,7 @@ const Cover = () => {
     <div className="max-w-md">
       <h1 className="mb-5 text-5xl font-bold">Our Instructors</h1>
       <p className="mb-5">Make you Summer Unforgettable With Us.</p>
-      <button className="btn btn-primary">Get Started</button>
+      <button className="btn btn-info">Enroll Now!</button>
     </div>
   </div>
 </div>

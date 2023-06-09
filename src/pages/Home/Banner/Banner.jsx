@@ -58,7 +58,7 @@ const Banner = () => {
       <div className='bg-blue-400 text-center py-6'>
         <h3 className="mb-5 text-4xl font-bold text-white">Welcome New Students!</h3>
         <p className='mb-5 text-2xl text-white'>Sign up now to receive a 25-minute taster lesson - completely free!</p>
-        <Link className="btn btn-primary" to='/register'>CLICK TO SIGN UP!</Link>
+        <Link className="btn btn-info" to='/register'>CLICK TO SIGN UP!</Link>
       </div>
     </>
   );

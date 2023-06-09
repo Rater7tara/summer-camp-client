@@ -78,7 +78,7 @@ const Login = () => {
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Login</button>
+                                    <button className="btn btn-info">Login</button>
                                     <div
                                         className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
                                         <p
@@ -88,7 +88,7 @@ const Login = () => {
                                     </div>
 
                                     <div className='mt-4 google-btn'>
-                                        <button className='btn bg-sky-500 w-full' onClick={google}><FaGoogle className='text-violet-500 text-2xl me-2'></FaGoogle> Sign in with google</button>
+                                        <button className='btn btn-primary w-full' onClick={google}><FaGoogle className='text-blue-500 text-2xl me-2'></FaGoogle> Sign in with google</button>
                                     </div>
                                 </div>
                                 <form className="mt-4 text-center">

@@ -1,0 +1,9 @@
+.btn-info{
+    background-color: #f97316;
+    color: white;
+    border: 1px solid black;
+}
+.btn-info:hover{
+    background-color: orange;
+    color: white;
+}

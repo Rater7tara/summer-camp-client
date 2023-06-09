@@ -4,6 +4,7 @@ import Banner from '../Banner/Banner';
 import Instructors from './PopInstructors/Instructors/Instructors';
 import PopInstructors from './PopInstructors/PopInstructors/PopInstructors';
 import Popular from './Popular/Popular';
+import './Home.css';
 
 const Home = () => {
     return (
