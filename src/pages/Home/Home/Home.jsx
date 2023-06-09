@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Banner from '../Banner/Banner';
+import Instructors from './PopInstructors/Instructors/Instructors';
 import PopInstructors from './PopInstructors/PopInstructors/PopInstructors';
 import Popular from './Popular/Popular';
 
@@ -15,7 +16,7 @@ const Home = () => {
             <Popular></Popular>
             </div>
             <div className='m-10'>
-            <PopInstructors></PopInstructors>
+            <Instructors></Instructors>
             </div>
         </div>
     );
