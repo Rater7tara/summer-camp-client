@@ -1,24 +1,29 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo1.png';
-import { FaUser } from "react-icons/fa";
+import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { AuthContext } from '../../../providers/AuthProvider';
 import './NavBar.css';
+import useCart from '../../../hooks/useCart';
 
 const NavBar = () => {
 
   const {user, logOut } = useContext(AuthContext);
+
+  const [cart] = useCart();
 
   const handleLogOut = () => {
     logOut()
     .then()
     .catch(error => console.log(error))
   }
+  
 
   const navOptions = <>
     <li className='hover:bg-orange-500 rounded-md'><Link to="/home">Home</Link></li>
     <li className='hover:bg-orange-500 rounded-md'><Link to="/instructors">Instructors</Link></li>
     <li className='hover:bg-orange-500 rounded-md'><Link to="/classes">Classes</Link></li>
+   
     
 
     {user?.email ? <>
@@ -30,6 +35,11 @@ const NavBar = () => {
     </Link>
 
     }
+     <li className='hover:bg-orange-500 rounded-md'><Link to="/">
+      
+        <FaShoppingCart></FaShoppingCart>
+        <div className='badge badge-warning'>+{cart?.length || 0}</div>
+      </Link></li>
     
   </>
     return (
