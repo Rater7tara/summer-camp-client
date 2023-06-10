@@ -6,54 +6,40 @@ import './Register.css';
 import "@lottiefiles/lottie-player";
 import sign from '../../../assets/sign.json';
 import Lottie from "lottie-react";
+import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2'
 
 
 const Register = () => {
-    const { user, createUser } = useContext(AuthContext);
-    const [error, setError] = useState('');
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { user, createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const handleRegister = event => {
-        event.preventDefault();
-
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        const name = form.name.value;
-        const photo = form.photo.value;
-
-        console.log(email, password, name, photo);
-
-        createUser(email, password)
+    const onSubmit = data => {
+        console.log(data);
+        createUser(data.email, data.password)
             .then(result => {
-                const createdUser = result.user;
-                console.log(createdUser);
-                navigate('/home')
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        console.log('user profile info updated')
+                        reset();
+                        Swal.fire({
+                            position: 'top-center',
+                            icon: 'success',
+                            title: 'User created successfully.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        navigate('/');
+
+                    })
+                    .catch(error => console.log(error))
             })
-            .catch(error => {
-                console.log(error);
-            })
+    };
 
-        // validate
-        if (!/(?=.*[A-Z])/.test(password)) {
-            setError('Please add at least one uppercase');
-            return;
-        }
-        else if (!/(?=.*[0-9].*[0-9])/.test(password)) {
-            setError('Please add at least two numbers');
-            return
-        }
-        else if (password.length < 6) {
-            setError('Please add at least 6 characters in your password')
-            return;
-        }
-    }
-
-
-
-
-
-
+   
     return (
         <div className=" p-10 md:flex justify-center">
             <Helmet>
@@ -67,8 +53,8 @@ const Register = () => {
                         <Lottie animationData={sign} loop={true} />
                     </div>
 
-                    <form className='w-full' onSubmit={handleRegister}>
-                        <h1 className="text-5xl font-bold mb-5">Please Register!</h1>
+                    <form className='w-full' onSubmit={handleSubmit(onSubmit)}>
+                        <h1 className="text-5xl font-bold mb-5">Sign Up Now!</h1>
                         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                             <div className="card-body">
 
@@ -78,8 +64,8 @@ const Register = () => {
                                             <span className="label-text">Name</span>
                                         </label>
                                         <label className="input-group">
-                                            <input type="text" name="name" placeholder="Name"
-                                                required className="input input-bordered w-full" />
+                                            <input type="text"  {...register("name", { required: true })} name="name" placeholder="Name" className="input input-bordered w-full" />
+                                            {errors.name && <span className="text-red-600">Name is required</span>}
                                         </label>
                                     </div>
                                 </div>
@@ -89,8 +75,8 @@ const Register = () => {
                                             <span className="label-text">Email Address</span>
                                         </label>
                                         <label className="input-group">
-                                            <input type="email" name="email" id="" placeholder='Email'
-                                                required className="input input-bordered w-full" />
+                                            <input type="email"  {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered w-full" />
+                                            {errors.email && <span className="text-red-600">Email is required</span>}
                                         </label>
                                     </div>
                                 </div>
@@ -100,9 +86,8 @@ const Register = () => {
                                             <span className="label-text">Photo URL</span>
                                         </label>
                                         <label className="input-group">
-                                            <input type="photo" name="photo" id="" placeholder='Photo URL'
-                                                required
-                                                className="input input-bordered w-full" />
+                                            <input type="text"  {...register("photoURL", { required: true })} placeholder="Photo URL" className="input input-bordered w-full" />
+                                            {errors.photoURL && <span className="text-red-600">Photo URL is required</span>}
                                         </label>
                                     </div>
                                 </div>
@@ -113,14 +98,23 @@ const Register = () => {
                                             <span className="label-text">Password</span>
                                         </label>
                                         <label className="input-group">
-                                            <input type="password" name="password" placeholder="Password" required className="input input-bordered w-full" />
+                                            <input type="password"  {...register("password", {
+                                                required: true,
+                                                minLength: 6,
+                                                maxLength: 20,
+                                                pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/
+                                            })} placeholder="password" className="input input-bordered w-full" />
+                                            {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
+                                            {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
+                                            {errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 6 characters</p>}
+                                            {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Capital letter and one Special character.</p>}
                                         </label>
 
                                     </div>
                                 </div>
 
 
-                                <input type="submit" value="Register" className="btn btn-info btn-block" />
+                                <input type="submit" value="Sign Up" className="btn btn-info btn-block" />
 
                                 <div className=" mt-4">
                                     <span className='text-centered mb-4'>Already Have an Account?</span><br /> <Link to='/login' className='btn btn-primary w-full mt-4'>Login</Link>

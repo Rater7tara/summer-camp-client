@@ -17,7 +17,7 @@ const AllClasses = ({ item }) => {
                     <p>Available Seats : {available_seats}</p>
                     <p>Price : {price}</p>
                     <div className="card-actions justify-center">
-                        <button className="btn btn-info">Select</button>
+                        <button className="btn btn-outline border-0 border-b-4 border-orange-500 bg-slate-950 text-white">Select</button>
                     </div>
                 </div>
             </div>

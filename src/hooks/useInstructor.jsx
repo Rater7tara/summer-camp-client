@@ -4,7 +4,7 @@ const useInstructor = () => {
     const [instructors, setInstructors] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch('data.json')
+        fetch('http://localhost:5000/student')
             .then(res => res.json())
             .then(data => {
                 setInstructors(data);

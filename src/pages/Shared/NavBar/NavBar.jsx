@@ -16,13 +16,13 @@ const NavBar = () => {
   }
 
   const navOptions = <>
-    <li><Link to="/home">Home</Link></li>
-    <li><Link to="/instructors">Instructors</Link></li>
-    <li><Link to="/classes">Classes</Link></li>
+    <li className='hover:bg-orange-500 rounded-md'><Link to="/home">Home</Link></li>
+    <li className='hover:bg-orange-500 rounded-md'><Link to="/instructors">Instructors</Link></li>
+    <li className='hover:bg-orange-500 rounded-md'><Link to="/classes">Classes</Link></li>
     
 
     {user?.email ? <>
-      <li><Link to="/dashboard">Dashboard</Link></li>
+      <li className='hover:bg-orange-500 rounded-md'><Link to="/dashboard">Dashboard</Link></li>
     </>
     :
     <Link to='/login'>
