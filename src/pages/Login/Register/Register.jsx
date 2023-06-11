@@ -8,31 +8,48 @@ import sign from '../../../assets/sign.json';
 import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2'
+import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 
 
 const Register = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const { user, createUser, updateUserProfile } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const onSubmit = data => {
-        console.log(data);
+
         createUser(data.email, data.password)
             .then(result => {
+
                 const loggedUser = result.user;
                 console.log(loggedUser);
+
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        console.log('user profile info updated')
-                        reset();
-                        Swal.fire({
-                            position: 'top-center',
-                            icon: 'success',
-                            title: 'User created successfully.',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        navigate('/');
+                        const saveUser = { name: data.name, email: data.email }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User created successfully.',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
+
+
 
                     })
                     .catch(error => console.log(error))
@@ -118,6 +135,7 @@ const Register = () => {
 
                                 <div className=" mt-4">
                                     <span className='text-centered mb-4'>Already Have an Account?</span><br /> <Link to='/login' className='btn btn-primary w-full mt-4'>Login</Link>
+                                    <SocialLogin></SocialLogin>
                                 </div>
                             </div>
 

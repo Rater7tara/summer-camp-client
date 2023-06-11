@@ -9,9 +9,10 @@ import "@lottiefiles/lottie-player";
 import login from '../../../assets/login.json';
 import Lottie from "lottie-react";
 import Swal from 'sweetalert2'
+import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
-    const { signIn, signInWithGoogle } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -41,16 +42,34 @@ const Login = () => {
             })
     }
 
-    const google = () => {
-        signInWithGoogle()
-            .then(result => {
-                const googleUser = result.user;
-                console.log(googleUser);
-            })
-            .catch(error => {
-                console.log(error.massage);
-            })
-    }
+    // const google = () => {
+    //     signInWithGoogle()
+    //         .then(result => {
+    //             const googleUser = result.user;
+    //             console.log(googleUser);
+    //             const saveUser = {name: googleUser.displayName, email: googleUser.email}
+
+    //             fetch('http://localhost:5000/users',{
+    //                 method: 'POST',
+    //                 headers: {
+    //                     'content-type': 'application/json'
+    //                 },
+    //                 body: JSON.stringify(saveUser)
+    //             })
+    //             .then(res => res.json())
+    //             .then(data =>{
+    //                 if(data.insertedId){
+                        
+    //             navigate(from, { replace: true});
+    //                 }
+    //             })
+                
+
+    //         })
+    //         .catch(error => {
+    //             console.log(error.massage);
+    //         })
+    // }
 
 
     return (
@@ -93,11 +112,9 @@ const Login = () => {
                                             className="mx-4 mb-0 text-center font-semibold dark:text-neutral-200">
                                             OR
                                         </p>
+                                        
                                     </div>
-
-                                    <div className='mt-4 google-btn'>
-                                        <button className='btn btn-primary w-full' onClick={google}><FaGoogle className='text-blue-500 text-2xl me-2'></FaGoogle> Sign in with google</button>
-                                    </div>
+                                    <SocialLogin></SocialLogin>
                                 </div>
                                 <form className="mt-4 text-center">
                                     Don't Have an Account?<br /> <Link to='/register' className='regi-btn btn mt-4'>Register</Link>

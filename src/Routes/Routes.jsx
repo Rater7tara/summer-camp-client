@@ -12,6 +12,7 @@ import Home from "../pages/Home/Home/Home";
 import InstructorPage from "../pages/InstructorPage/InstructorPage/InstructorPage";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 
   export const router = createBrowserRouter([
@@ -54,7 +55,7 @@ import Register from "../pages/Login/Register/Register";
     },
     {
       path: 'dashboard',
-      element: <Dashboard></Dashboard>,
+      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
       children: [
         {
           path: 'mycart',
