@@ -2,10 +2,12 @@ import {
   Navigate,
     createBrowserRouter,
   } from "react-router-dom";
+import Dashboard from "../Layout/Dashboard";
 import ErrorPage from "../Layout/ErrorPage";
 import LoginLayout from "../Layout/LoginLayout";
 import Main from "../Layout/Main";
 import ClassesPage from "../pages/ClassesPage/ClassesPage/ClassesPage";
+import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import Home from "../pages/Home/Home/Home";
 import InstructorPage from "../pages/InstructorPage/InstructorPage/InstructorPage";
 import Login from "../pages/Login/Login/Login";
@@ -50,4 +52,14 @@ import Register from "../pages/Login/Register/Register";
         }
       ]
     },
+    {
+      path: 'dashboard',
+      element: <Dashboard></Dashboard>,
+      children: [
+        {
+          path: 'mycart',
+          element: <MyCart></MyCart>
+        }
+      ]
+    }
   ]);

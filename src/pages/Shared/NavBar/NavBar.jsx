@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo1.png';
-import { FaShoppingCart, FaUser } from "react-icons/fa";
+import { FaHome, FaShoppingCart, FaUser } from "react-icons/fa";
+import { FcBusinessman } from "react-icons/fc";
 import { AuthContext } from '../../../providers/AuthProvider';
 import './NavBar.css';
 import useCart from '../../../hooks/useCart';
@@ -35,7 +36,7 @@ const NavBar = () => {
     </Link>
 
     }
-     <li className='hover:bg-orange-500 rounded-md'><Link to="/">
+     <li className='hover:bg-orange-500 rounded-md'><Link to="/dashboard/mycart">
       
         <FaShoppingCart></FaShoppingCart>
         <div className='badge badge-warning'>+{cart?.length || 0}</div>

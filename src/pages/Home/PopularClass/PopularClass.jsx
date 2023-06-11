@@ -10,8 +10,8 @@ const PopularClass = ({ item }) => {
             <div className="avatar relative inline-flex w-fit">
                 <div className="container  rounded-full relative max-w-xs overflow-hidden bg-cover bg-no-repeat ">
                     <img src={dance_image} class="image" />
-                    <div class="middle">
-                        <div class="text text-6xl">
+                    <div className="middle">
+                        <div className="text text-6xl">
                             <h1 className='text-2xl'>{number_of_students} Students</h1>
                             <button>+</button></div>
                     </div>
