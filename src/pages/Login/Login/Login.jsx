@@ -42,35 +42,6 @@ const Login = () => {
             })
     }
 
-    // const google = () => {
-    //     signInWithGoogle()
-    //         .then(result => {
-    //             const googleUser = result.user;
-    //             console.log(googleUser);
-    //             const saveUser = {name: googleUser.displayName, email: googleUser.email}
-
-    //             fetch('http://localhost:5000/users',{
-    //                 method: 'POST',
-    //                 headers: {
-    //                     'content-type': 'application/json'
-    //                 },
-    //                 body: JSON.stringify(saveUser)
-    //             })
-    //             .then(res => res.json())
-    //             .then(data =>{
-    //                 if(data.insertedId){
-                        
-    //             navigate(from, { replace: true});
-    //                 }
-    //             })
-                
-
-    //         })
-    //         .catch(error => {
-    //             console.log(error.massage);
-    //         })
-    // }
-
 
     return (
         <div className=" p-10 md:flex justify-center">

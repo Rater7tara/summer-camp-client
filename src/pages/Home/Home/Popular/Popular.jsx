@@ -4,7 +4,7 @@ import PopularClass from '../../PopularClass/PopularClass';
 const Popular = () => {
     const [classes, setClasses] = useState([]);
     useEffect(() =>{
-        fetch('data.json')
+        fetch('http://localhost:5000/student')
         .then(res => res.json())
         .then(data => {
             const filteredData = data.filter((item) => item.number_of_students !== '');

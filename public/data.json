@@ -2,7 +2,6 @@
     {
         "dance_image": "https://i.ibb.co/DCbpGnk/break.jpg",
         "name": "Break Dance",
-        "_id": "648535df7e6a78acb5363a79",
         "instructor_image": "https://i.ibb.co/LCV2Byx/360-F-314144513-p1hw-Ye-PWAvt-CR2d-D4-Ai-SLJfv-Lvaxw-Rub.jpg",
         "instructor_name": "John Smith",
         "price": 50,
@@ -15,7 +14,6 @@
       {
         "dance_image": "https://i.ibb.co/zhKvQMC/couple.jpg",
         "name": "Couple Dance",
-        "_id": "648535ef7e6a78acb5363a7b",
         "instructor_image": "https://i.ibb.co/hcBjPKC/360-F-127539197-5-IOAPx-RMair-EYt-Ua-Hasa-Ikk-NM6-J1yx-Au.jpg",
         "instructor_name": "Emily Johnson",
         "price": 60,
@@ -28,7 +26,6 @@
       {
         "dance_image": "https://i.ibb.co/zGtWJ9w/disco.jpg",
         "name": "Disco Dance",
-        "_id": "648536107e6a78acb5363a80",
         "instructor_image": "https://i.ibb.co/k0YWzXz/360-F-214746128-31-Jkea-P6r-U0-Nzzzd-FC4kh-Gkmqc8noe6h.jpg",
         "instructor_name": "David Anderson",
         "price": 45,
@@ -41,7 +38,6 @@
       {
         "dance_image": "https://i.ibb.co/V3mmjPf/indian.jpg",
         "name": "Indian Dance",
-        "_id": "648535f87e6a78acb5363a7c",
         "instructor_image": "https://i.ibb.co/M68jzDR/istockphoto-1283362093-612x612.jpg",
         "instructor_name": "Priya Patel",
         "price": 55,
@@ -54,7 +50,6 @@
       {
         "dance_image": "https://i.ibb.co/Lzk4Qfq/jazzz.jpg",
         "name": "Jazz Funk",
-        "_id": "6485361c7e6a78acb5363a82",
         "instructor_image": "https://i.ibb.co/WyQV492/photo-1568602471122-7832951cc4c5.jpg",
         "instructor_name": "Michael Son",
         "price": 65,
@@ -67,7 +62,6 @@
       {
         "dance_image": "https://i.ibb.co/q9RTTF8/modern.jpg",
         "name": "Modern Dance",
-        "_id": "648535fd7e6a78acb5363a7d",
         "instructor_image": "https://i.ibb.co/wWFtMKV/360-F-299973520-rg-AKO2-Bdh-Nh-DAr-SSm7ik-CT03q-BCYcum-J.jpg",
         "instructor_name": "Sara Wilson",
         "price": 50,
@@ -80,7 +74,6 @@
       {
         "dance_image": "https://i.ibb.co/17vFTYc/64bd75e4414ab85ab0e8791683132700-ballet-poses-ballet-danza.jpg",
         "name": "Ballet Dance",
-        "id": "648535e47e6a78acb5363a7a",
         "instructor_image": "https://i.ibb.co/2yh4dLG/360-F-299973420-Sul5-SWPie-Qyxds20-Po-MDfw-JOS5p-Q7-Fv-P.jpg",
         "instructor_name": "Olivia Thompson",
         "price": 70,
@@ -93,7 +86,6 @@
       {
         "dance_image": "https://i.ibb.co/PMymt04/Hip-Hop.png",
         "name": "Hip Hop",
-        "id": "648536047e6a78acb5363a7e",
         "instructor_image": "https://i.ibb.co/KxKZL79/360-F-224869519-a-Rae-Lneq-ALf-PNBzg0xx-MZXghtv-BXkf-IA.jpg",
         "instructor_name": "Marcus Johnson",
         "price": 55,
@@ -106,7 +98,6 @@
       {
         "dance_image": "https://i.ibb.co/Kj9X9jN/320-12715159-couple-ballroom-dancing.jpg",
         "name": "Salsa Dance",
-        "id": "6485360b7e6a78acb5363a7f",
         "instructor_image": "https://i.ibb.co/hR6YHqD/istockphoto-1319763830-612x612.jpg",
         "instructor_name": "Isabella Ramirez",
         "price": 60,
@@ -119,7 +110,6 @@
       {
         "dance_image": "https://i.ibb.co/ftngRqF/Tap-Dance.jpg",
         "name": "Tap Dance",
-        "id": "648536247e6a78acb5363a84",
         "instructor_image": "https://i.ibb.co/HtnKnMp/portrait-young-handsome-man-jean-shirt-smiling-with-crossed-arms.jpg",
         "instructor_name": "Benjamin Davis",
         "price": 50,
@@ -132,7 +122,6 @@
       {
         "dance_image": "https://i.ibb.co/xYRVzg3/0135717601890542f7783bd1bbec48bc-spanish-dancer-flamenco-dancers.jpg",
         "name": "Flamenco",
-        "id": "648536137e6a78acb5363a81",
         "instructor_image": "https://i.ibb.co/PtP31Xj/cheerful-curly-business-girl-wearing-glasses.jpg",
         "instructor_name": "Maria Hernandez",
         "price": 65,
@@ -145,7 +134,6 @@
       {
         "dance_image": "https://i.ibb.co/tDnsJD1/Contemporary.jpg",
         "name": "Contemporary",
-        "id": "648536217e6a78acb5363a83",
         "instructor_image": "https://i.ibb.co/nQ9jLZP/360-F-326985142-1aa-Kc-Ej-MQW6-ULp6o-I9-MYuv8l-N9f8s-Fmj.jpg",
         "instructor_name": "Daniel Anderson",
         "price": 55,

@@ -7,6 +7,7 @@ import ErrorPage from "../Layout/ErrorPage";
 import LoginLayout from "../Layout/LoginLayout";
 import Main from "../Layout/Main";
 import ClassesPage from "../pages/ClassesPage/ClassesPage/ClassesPage";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import Home from "../pages/Home/Home/Home";
 import InstructorPage from "../pages/InstructorPage/InstructorPage/InstructorPage";
@@ -60,6 +61,10 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
         {
           path: 'mycart',
           element: <MyCart></MyCart>
+        },
+        {
+          path: 'allusers',
+          element: <AllUsers></AllUsers>
         }
       ]
     }
