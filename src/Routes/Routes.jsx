@@ -7,12 +7,14 @@ import ErrorPage from "../Layout/ErrorPage";
 import LoginLayout from "../Layout/LoginLayout";
 import Main from "../Layout/Main";
 import ClassesPage from "../pages/ClassesPage/ClassesPage/ClassesPage";
+import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import Home from "../pages/Home/Home/Home";
 import InstructorPage from "../pages/InstructorPage/InstructorPage/InstructorPage";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
+import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 
@@ -64,7 +66,11 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
         },
         {
           path: 'allusers',
-          element: <AllUsers></AllUsers>
+          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
+        },
+        {
+          path: 'addclass',
+          element: <AdminRoute><AddClass></AddClass></AdminRoute>
         }
       ]
     }
