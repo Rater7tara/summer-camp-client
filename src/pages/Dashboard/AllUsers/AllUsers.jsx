@@ -59,12 +59,21 @@ const AllUsers = () => {
                         {
                             users.map((user, index) => <tr key={user._id}>
                                 <th>{index + 1}</th>
+                                {/* <td>
+                                    <div className="avatar">
+                                        <div className="mask mask-squircle w-12 h-12">
+                                            <img src={user.photoURL} alt="Avatar Tailwind CSS Component" />
+                                        </div>
+                                    </div>
+                                </td> */}
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{ user.role === 'admin' ? 'admin' :
-                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-orange-600  text-white"><FaUserShield></FaUserShield></button> 
+                                    <button onClick={() => handleMakeAdmin(user)} className="btn bg-white  text-white "><FaUserShield  className='text-orange-600 text-2xl'></FaUserShield></button> 
                                     }</td>
-                                <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
+                                <td className="">
+                                    <button onClick={() => handleDelete(item)} className="btn bg-white  text-white"><FaTrashAlt className='text-red-600 text-2xl'></FaTrashAlt></button>
+                                </td>
                             </tr>)
                         }
                         
