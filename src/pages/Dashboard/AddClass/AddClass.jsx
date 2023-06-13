@@ -3,13 +3,14 @@ import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import { useForm } from 'react-hook-form';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { AuthContext } from '../../../providers/AuthProvider';
+import Swal from "sweetalert2";
 
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 
 const AddClass = () => {
     const {user} = useContext(AuthContext);
     const [axiosSecure] = useAxiosSecure();
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
@@ -33,8 +34,18 @@ const AddClass = () => {
                 const newClass = {name, available_seats, dance_image:imgURL, instructor_name:user?.displayName, instructor_email:user?.email, price: parseFloat(price)}
                 console.log(newClass);
                 axiosSecure.post('/student', newClass, { status: 'pending' })
-                .then(response =>{
-                    console.log('after posting new menu item', response.data);
+                .then(data =>{
+                    console.log('after posting new class', data.data);
+                    if(data.data.insertedId){
+                        reset();
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'New Class added successfully',
+                            showConfirmButton: false,
+                            timer: 1500
+                          })
+                    }
                     setIsButtonDisabled(false);
                 })
                 .catch((error) => {
@@ -44,45 +55,6 @@ const AddClass = () => {
             }
             
         })
-
-
-        // const form = event.target;
-
-        // const name = form.name.value;
-        // const available_seats = form.available_seats.value;
-        // const instructor_name = form.instructor_name.value;
-        // const instructor_email = form.instructor_email.value;
-        // const price = form.price.value;
-        // const dance_image = form.dance_image.value;
-
-        // const newClass = {name, available_seats, instructor_name, instructor_email, dance_image, price}
-
-        // console.log(newClass);
-
-        // // send data to the server
-        // fetch('http://localhost:5000/student', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newClass)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         if (data.insertedId) {
-        //             reset();
-        //             Swal.fire({
-        //                 title: 'Successfully Added',
-        //                 showClass: {
-        //                   popup: 'animate__animated animate__fadeInDown'
-        //                 },
-        //                 hideClass: {
-        //                   popup: 'animate__animated animate__fadeOutUp'
-        //                 }
-        //               })
-        //         }
-            // })
 
     }
 
@@ -103,7 +75,7 @@ const AddClass = () => {
                         </label>
                     </div>
                 </div>
-                {/* form seller row */}
+                {/* form Instructor row */}
                 <div className="md:flex mb-6">
                     <div className="form-control md:w-1/2 ">
                         <label className="label">
