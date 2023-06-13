@@ -9,12 +9,15 @@ import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2'
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 const Register = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
+
+    const [showPassword, setShowPassword] = useState(false);
 
     const onSubmit = data => {
 
@@ -56,7 +59,11 @@ const Register = () => {
             })
     };
 
-   
+    const handleTogglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
+
     return (
         <div className=" p-10 md:flex justify-center">
             <Helmet>
@@ -115,12 +122,19 @@ const Register = () => {
                                             <span className="label-text">Password</span>
                                         </label>
                                         <label className="input-group">
-                                            <input type="password"  {...register("password", {
+                                            <input type={showPassword ? "text" : "password"}  {...register("password", {
                                                 required: true,
                                                 minLength: 6,
                                                 maxLength: 20,
                                                 pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/
                                             })} placeholder="password" className="input input-bordered w-full" />
+                                            <button
+                                                type="button"
+                                                className="btn bg-blue-100"
+                                                onClick={handleTogglePasswordVisibility}
+                                            >
+                                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                            </button>
                                             {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
                                             {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
                                             {errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 6 characters</p>}

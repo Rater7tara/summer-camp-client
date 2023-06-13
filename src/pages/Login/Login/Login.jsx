@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Input, Ripple, initTE } from "tw-elements";
 initTE({ Input, Ripple, }, true);
-import { FaGoogle } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Helmet } from 'react-helmet-async';
 import "@lottiefiles/lottie-player";
 import login from '../../../assets/login.json';
@@ -18,6 +18,8 @@ const Login = () => {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || "/";
+
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleLogin = event => {
         event.preventDefault();
@@ -42,6 +44,10 @@ const Login = () => {
             })
     }
 
+    const handleTogglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
 
     return (
         <div className=" p-10 md:flex justify-center">
@@ -52,7 +58,7 @@ const Login = () => {
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                    <Lottie animationData={login} loop={true}/>
+                        <Lottie animationData={login} loop={true} />
                     </div>
 
                     <form className='w-full' onSubmit={handleLogin}>
@@ -64,13 +70,27 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" name="email" placeholder="email" className="input input-bordered" />
+                                    <input type="email" name="email" placeholder="email" className="input input-bordered w-full" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                                    <div className="input-group">
+                                        <input
+                                            type={showPassword ? "text" : "password"}
+                                            name="password"
+                                            placeholder="password"
+                                            className="input input-bordered w-full"
+                                        />
+                                        <button
+                                            type="button"
+                                            className="btn bg-blue-100"
+                                            onClick={handleTogglePasswordVisibility}
+                                        >
+                                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                        </button>
+                                    </div>
                                     <label className="label">
                                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                     </label>
@@ -83,7 +103,7 @@ const Login = () => {
                                             className="mx-4 mb-0 text-center font-semibold dark:text-neutral-200">
                                             OR
                                         </p>
-                                        
+
                                     </div>
                                     <SocialLogin></SocialLogin>
                                 </div>

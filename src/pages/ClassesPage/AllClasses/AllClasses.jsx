@@ -55,8 +55,10 @@ const AllClasses = ({ item }) => {
     }
     return (
         <>
-            <div className="card w-96 bg-slate-950 shadow-xl items-center">
-                <div className="container  rounded-full relative max-w-xs overflow-hidden bg-cover bg-no-repeat ">
+            <div className={`card w-96 bg-slate-950 shadow-xl items-center ${
+          available_seats === 0 ? 'bg-red-500' : ''
+        }`}>
+                <div className="container  rounded-full relative max-w-xs overflow-hidden bg-cover bg-no-repeat mt-5">
                     <img src={dance_image} className="imgAll" />
 
                     <span className="absolute bottom-4 right-0 left-20 top-auto z-10 inline-block rotate-0 p-2.5 bg-orange-500 text-md text-white font-bold uppercase">{name}</span>
@@ -67,9 +69,17 @@ const AllClasses = ({ item }) => {
                     <p>Available Seats : {available_seats}</p>
                     <p>Price : {price}</p>
                     <div className="card-actions justify-center">
-                        <button 
-                        onClick={() => handleAddClass(item)}
-                         className="btn btn-outline border-0 border-b-4 border-orange-500 bg-slate-950 text-white">Select</button>
+                    <button
+              onClick={() => handleAddClass(item)}
+              disabled={
+                available_seats === 0 || user?.role === 'admin' || user?.role === 'instructor'
+              }
+              className="btn btn-outline border-0 border-b-4 border-orange-500 bg-slate-950 text-white"
+            >
+              {user && user.email
+                ? 'Select'
+                : 'Log in to Select'}
+            </button>
                     </div>
                 </div>
             </div>
