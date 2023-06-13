@@ -2,6 +2,7 @@ import { FaShoppingCart, FaWallet, FaHome, FaCalendar, FaUsers, FaUserTie } from
 import { Outlet, NavLink } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useCart from "../hooks/useCart";
+import NavBar from "../pages/Shared/NavBar/NavBar";
 
 const Dashboard = () => {
     const [cart] = useCart();
@@ -10,6 +11,7 @@ const Dashboard = () => {
     const [isAdmin] = useAdmin();
 
     return (
+        <>
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
@@ -24,17 +26,17 @@ const Dashboard = () => {
 
                     {
                         isAdmin ? <>
-                            <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/home'><FaHome></FaHome> Admin Home</NavLink></li>
+                            <li className='hover:bg-orange-500 rounded-md'><NavLink to='/'><FaHome></FaHome> Admin Home</NavLink></li>
 
                             <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/addclass'><FaUsers></FaUsers> Add New Class</NavLink></li>
                             
-                            <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/reservations'><FaUserTie></FaUserTie> Manage Classes</NavLink></li>
+                            <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/myclasses'><FaUserTie></FaUserTie>My Classes</NavLink></li>
                             <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/allusers'><FaUserTie></FaUserTie>All Users</NavLink></li>
                             
                         </> :
                             <>
                             
-                                <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/home'><FaHome></FaHome> User Home</NavLink></li>
+                                <li className='hover:bg-orange-500 rounded-md'><NavLink to='/'><FaHome></FaHome> User Home</NavLink></li>
 
                                 <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/history'><FaWallet></FaWallet> Payment History</NavLink></li>
                                 <li className='hover:bg-orange-500 rounded-md'>
@@ -60,6 +62,8 @@ const Dashboard = () => {
 
             </div>
         </div>
+        
+        </>
     );
 };
 

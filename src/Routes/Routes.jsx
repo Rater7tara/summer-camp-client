@@ -10,6 +10,7 @@ import ClassesPage from "../pages/ClassesPage/ClassesPage/ClassesPage";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
+import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
 import Home from "../pages/Home/Home/Home";
 import InstructorPage from "../pages/InstructorPage/InstructorPage/InstructorPage";
 import Login from "../pages/Login/Login/Login";
@@ -71,6 +72,10 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
         {
           path: 'addclass',
           element: <AdminRoute><AddClass></AddClass></AdminRoute>
+        },
+        {
+          path: 'myclasses',
+          element: <AdminRoute><MyClasses></MyClasses></AdminRoute>
         }
       ]
     }

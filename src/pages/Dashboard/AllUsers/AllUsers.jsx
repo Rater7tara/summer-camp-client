@@ -14,6 +14,25 @@ const AllUsers = () => {
         return res.data;
     })
 
+    const handleMakeInstructor = user =>{
+        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+            method: 'PATCH'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.modifiedCount){
+                refetch();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `${user.name} is an Instructor Now!`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
+    }
     const handleMakeAdmin = user =>{
         fetch(`http://localhost:5000/users/admin/${user._id}`, {
             method: 'PATCH'
@@ -35,7 +54,32 @@ const AllUsers = () => {
     }
 
     const handleDelete = user => {
-
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/users/${user._id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Your Class has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
     }
 
     return (
@@ -51,9 +95,11 @@ const AllUsers = () => {
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Image</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Role</th>
+                            <th>Make Admin</th>
+                            <th>Make Instructor</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -61,20 +107,23 @@ const AllUsers = () => {
                         {
                             users.map((user, index) => <tr key={user._id}>
                                 <th>{index + 1}</th>
-                                {/* <td>
+                                <td>
                                     <div className="avatar">
                                         <div className="mask mask-squircle w-12 h-12">
-                                            <img src={user.photoURL} alt="Avatar Tailwind CSS Component" />
+                                            <img src={user.image} alt="Avatar Tailwind CSS Component" />
                                         </div>
                                     </div>
-                                </td> */}
+                                </td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{ user.role === 'admin' ? 'admin' :
                                     <button onClick={() => handleMakeAdmin(user)} className="btn bg-white  text-white "><FaUserShield  className='text-orange-600 text-2xl'></FaUserShield></button> 
                                     }</td>
+                                <td>{ user.role === 'instructor' ? 'instructor' :
+                                    <button onClick={() => handleMakeInstructor(user)} className="btn bg-white  text-white "><FaUserShield  className='text-orange-600 text-2xl'></FaUserShield></button> 
+                                    }</td>
                                 <td className="">
-                                    <button onClick={() => handleDelete(item)} className="btn bg-white  text-white"><FaTrashAlt className='text-red-600 text-2xl'></FaTrashAlt></button>
+                                    <button onClick={() => handleDelete(user)} className="btn bg-white  text-white"><FaTrashAlt className='text-red-600 text-2xl'></FaTrashAlt></button>
                                 </td>
                             </tr>)
                         }

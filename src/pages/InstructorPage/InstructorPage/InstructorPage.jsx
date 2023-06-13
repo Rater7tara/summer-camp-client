@@ -8,8 +8,9 @@ import useInstructor from '../../../hooks/useInstructor';
 
 const InstructorPage = () => {
   const [instructors] = useInstructor();
-    const filteredData = instructors.filter((item) => item.number_of_students !== '');
-    const students = filteredData.sort((a, b) => b.number_of_students - a.number_of_students);
+    // const filteredData = instructors.filter((item) => item.number_of_students !== '');
+    // const students = filteredData.sort((a, b) => b.number_of_students - a.number_of_students);
+    console.log(instructors);
     
     return (
         <div>
@@ -25,7 +26,7 @@ const InstructorPage = () => {
           }}>
               
               {
-                students.map(item => <AllInstructors
+                instructors.map(item => <AllInstructors
                   key={item._id}
                   item={item}
                 ></AllInstructors>
