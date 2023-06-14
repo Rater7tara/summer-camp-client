@@ -59,7 +59,7 @@ const Dashboard = () => {
                             
                                 <li className='hover:bg-orange-500 rounded-md'><NavLink to='/'><FaHome></FaHome> User Home</NavLink></li>
 
-                                <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/history'><FaWallet></FaWallet> Payment History</NavLink></li>
+                                <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/paymenthistory'><FaWallet></FaWallet> Payment History</NavLink></li>
                                 <li className='hover:bg-orange-500 rounded-md'>
                                     <NavLink to='/dashboard/mycart'><FaShoppingCart></FaShoppingCart> My Cart
                                         <span className="badge inl badge-bg-white font-bold">+{cart?.length || 0}</span>

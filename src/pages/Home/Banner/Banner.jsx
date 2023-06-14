@@ -3,6 +3,9 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import './Banner.css';
 import { Link } from 'react-router-dom';
+import "@lottiefiles/lottie-player";
+import dance from '../../../assets/dance.json';
+import Lottie from "lottie-react";
 
 import img1 from '../../../assets/Banner/banner.png';
 import img2 from '../../../assets/Banner/banner (2).jpg';
@@ -55,11 +58,27 @@ const Banner = () => {
           </div>
         </div>
       </Carousel>
-      <div className='bg-blue-400 text-center py-6'>
-        <h3 className="mb-5 text-4xl font-bold text-white">Welcome New Students!</h3>
-        <p className='mb-5 text-2xl text-white'>Sign up now to receive a 25-minute taster lesson - completely free!</p>
-        <Link className="btn btn-info" to='/register'>CLICK TO SIGN UP!</Link>
-      </div>
+      <div className='bg-blue-400 flex'>
+  <div className='w-96'>
+    <Lottie
+      animationData={dance}
+      loop={true}
+      options={{
+        rendererSettings: {
+          preserveAspectRatio: 'xMidYMid slice', // Adjust as per your animation's aspect ratio
+        },
+        width: 400, // Adjust to your preference
+        height: 400, // Adjust to your preference
+      }}
+    />
+  </div>
+  <div className='w-1/2 flex flex-col justify-center text-center'>
+    <h3 className="mb-5 text-4xl font-bold text-white">Welcome New Students!</h3>
+    <p className='mb-5 text-2xl text-white'>Sign up now to receive a 25-minute taster lesson - completely free!</p>
+    <Link className="btn btn-info mt-10" to='/register'>CLICK TO SIGN UP!</Link>
+  </div>
+</div>
+
     </>
   );
 };

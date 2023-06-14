@@ -13,6 +13,7 @@ import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import Home from "../pages/Home/Home/Home";
 import InstructorPage from "../pages/InstructorPage/InstructorPage/InstructorPage";
@@ -71,6 +72,10 @@ export const router = createBrowserRouter([
       {
         path: 'payment',
         element: <Payment></Payment>,
+      },
+      {
+        path: 'paymenthistory',
+        element:<PaymentHistory></PaymentHistory>,
       },
       // Admin routes
       // {
