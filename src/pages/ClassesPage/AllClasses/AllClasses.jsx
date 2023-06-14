@@ -17,7 +17,7 @@ const AllClasses = ({ item }) => {
         console.log(item);
         if(user && user.email){
             const selectClass = {classId: _id, name, dance_image, instructor_name, price, available_seats, number_of_students, email: user.email}
-            fetch('http://localhost:5000/carts', {
+            fetch('https://summer-camp-server-git-main-rater7tara.vercel.app/carts', {
                 method: 'POST',
                 headers:{
                     'content-type': 'application/json'
