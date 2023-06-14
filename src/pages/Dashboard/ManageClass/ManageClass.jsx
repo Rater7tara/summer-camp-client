@@ -3,8 +3,9 @@ import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import useInstructor from '../../../hooks/useInstructor';
 import { Helmet } from 'react-helmet-async';
 import { FaTrashAlt } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
-const MyClasses = () => {
+const ManageClass = () => {
     const [instructors, loading] = useInstructor();
 
     const handleDelete = item => {
@@ -35,7 +36,6 @@ const MyClasses = () => {
             }
         })
     }
-
     return (
         <div className='w-full'>
             <SectionTitle heading="My Classes" subHeading="Wanna Change Something?"></SectionTitle>
@@ -54,9 +54,6 @@ const MyClasses = () => {
                             <th>#</th>
                             <th>Classes</th>
                             <th>Class Name</th>
-                            <th>Instructor Name</th>
-                            <th>Email</th>
-                            
                             <th>Available Seat</th>
                             <th>Price</th>
                             <th>Action</th>
@@ -84,17 +81,11 @@ const MyClasses = () => {
                                     {item.name}
                                 </td>
                                 <td>
-                                    {item.instructor_name}
-                                </td>
-                                <td>
-                                    {item.instructor_email}
-                                </td>
-                                <td>
                                     {item.available_seats}
                                 </td>
                                 <td>${item.price}</td>
                                 <td className="">
-                                    <button onClick={() => handleDelete(item)} className="btn btn-info btn-sm">Pending</button>
+                                    <button className="btn btn-info btn-sm">Pending</button>
                                     
                                 </td>
                                 <td className="">
@@ -116,4 +107,4 @@ const MyClasses = () => {
     );
 };
 
-export default MyClasses;
+export default ManageClass;

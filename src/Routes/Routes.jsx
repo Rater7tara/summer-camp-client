@@ -10,6 +10,7 @@ import ClassesPage from "../pages/ClassesPage/ClassesPage/ClassesPage";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
 // import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import ManageClass from "../pages/Dashboard/ManageClass/ManageClass";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
 import Payment from "../pages/Dashboard/Payment/Payment";
@@ -76,6 +77,10 @@ export const router = createBrowserRouter([
       {
         path: 'paymenthistory',
         element:<PaymentHistory></PaymentHistory>,
+      },
+      {
+        path: 'manageclass',
+        element:<ManageClass></ManageClass>,
       },
       // Admin routes
       // {

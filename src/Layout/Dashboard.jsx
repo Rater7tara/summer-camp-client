@@ -51,13 +51,14 @@ const Dashboard = () => {
 
                             <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/addclass'><FaUsers></FaUsers> Add New Class</NavLink></li>
                             
-                            <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/myclasses'><FaUserTie></FaUserTie>My Classes</NavLink></li>
+                            <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/myclasses'><FaUserTie></FaUserTie>Manage Class</NavLink></li>
                             <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/allusers'><FaUserTie></FaUserTie>All Users</NavLink></li>
                             
                         </> :
                             <>
                             
                                 <li className='hover:bg-orange-500 rounded-md'><NavLink to='/'><FaHome></FaHome> User Home</NavLink></li>
+                                <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/manageclass'><FaUserTie></FaUserTie>My Classes</NavLink></li>
 
                                 <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/paymenthistory'><FaWallet></FaWallet> Payment History</NavLink></li>
                                 <li className='hover:bg-orange-500 rounded-md'>

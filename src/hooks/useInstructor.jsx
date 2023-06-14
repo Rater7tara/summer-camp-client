@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useEffect, useState } from 'react';
+
 
 const useInstructor = () => {
     // const [instructors, setInstructors] = useState([]);
@@ -12,7 +12,7 @@ const useInstructor = () => {
     //             setLoading(false);
     //         });
     // }, [])
-    const {data: instructors = [], isLoading: loading} = useQuery({
+    const {data: instructors = [], isLoading: loading, refetch} = useQuery({
         queryKey: ['instructors'],
         queryFn: async() =>{
             const res = await fetch('http://localhost:5000/student');
@@ -20,7 +20,7 @@ const useInstructor = () => {
         }
     })
 
-    return [instructors, loading]
+    return [instructors, loading, refetch]
 }
 
 export default useInstructor;
