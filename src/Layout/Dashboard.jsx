@@ -3,6 +3,7 @@ import { Outlet, NavLink } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useCart from "../hooks/useCart";
 import NavBar from "../pages/Shared/NavBar/NavBar";
+import { Helmet } from 'react-helmet-async';
 
 const Dashboard = () => {
     const [cart] = useCart();
@@ -12,6 +13,9 @@ const Dashboard = () => {
 
     return (
         <>
+        <Helmet>
+                <title>DancingDream | Dashboard</title>
+            </Helmet>
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
@@ -45,7 +49,7 @@ const Dashboard = () => {
                                     </NavLink>
 
                                 </li>
-                                <li className='hover:bg-orange-500 rounded-md'><NavLink to='/dashboard/reservations'><FaCalendar></FaCalendar> Reservations</NavLink></li>
+                            
                             </>
                     }
 

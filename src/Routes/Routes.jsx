@@ -1,17 +1,19 @@
 import {
   Navigate,
-    createBrowserRouter,
-  } from "react-router-dom";
+  createBrowserRouter,
+} from "react-router-dom";
 import Dashboard from "../Layout/Dashboard";
 import ErrorPage from "../Layout/ErrorPage";
 import LoginLayout from "../Layout/LoginLayout";
 import Main from "../Layout/Main";
 import ClassesPage from "../pages/ClassesPage/ClassesPage/ClassesPage";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
+// import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import Home from "../pages/Home/Home/Home";
 import InstructorPage from "../pages/InstructorPage/InstructorPage/InstructorPage";
 import Login from "../pages/Login/Login/Login";
@@ -20,69 +22,77 @@ import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 
-  export const router = createBrowserRouter([
-    {
-      path:'/',
-      element: <LoginLayout></LoginLayout>,
-      errorElement: <ErrorPage></ErrorPage>,
-      children: [
-        {
-          path:'/',
-          element: <Navigate to="/home"></Navigate>
-        },
-        {
-          path: 'login',
-          element: <Login></Login>
-        },
-        {
-          path:'register',
-          element: <Register></Register>
-        }
-      ]
-    },
-    {
-      path: "/",
-      element: <Main></Main>,
-      children: [
-        {
-            path: '/home',
-            element: <Home></Home>
-        },
-        {
-          path:'/instructors',
-          element:<InstructorPage></InstructorPage>
-        },
-        {
-          path:'/classes',
-          element:<ClassesPage></ClassesPage>
-        }
-      ]
-    },
-    {
-      path: 'dashboard',
-      element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
-      children: [
-        {
-          path: 'mycart',
-          element: <MyCart></MyCart>
-        },
-        {
-          path: 'payment',
-          element: <Payment></Payment>,
-        },
-        // Admin routes
-        {
-          path: 'allusers',
-          element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
-        },
-        {
-          path: 'addclass',
-          element: <AdminRoute><AddClass></AddClass></AdminRoute>
-        },
-        {
-          path: 'myclasses',
-          element: <AdminRoute><MyClasses></MyClasses></AdminRoute>
-        }
-      ]
-    }
-  ]);
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <LoginLayout></LoginLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: '/',
+        element: <Navigate to="/home"></Navigate>
+      },
+      {
+        path: 'login',
+        element: <Login></Login>
+      },
+      {
+        path: 'register',
+        element: <Register></Register>
+      }
+    ]
+  },
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: '/home',
+        element: <Home></Home>
+      },
+      {
+        path: '/instructors',
+        element: <InstructorPage></InstructorPage>
+      },
+      {
+        path: '/classes',
+        element: <ClassesPage></ClassesPage>
+      }
+    ]
+  },
+  {
+    path: 'dashboard',
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children: [
+      {
+        path: 'userhome',
+        element:<UserHome></UserHome>,
+      },
+      {
+        path: 'mycart',
+        element: <MyCart></MyCart>
+      },
+      {
+        path: 'payment',
+        element: <Payment></Payment>,
+      },
+      // Admin routes
+      // {
+      //   path: 'adminhome',
+      //   element: <AdminRoute><AdminHome></AdminHome></AdminRoute>,
+      // },
+      {
+        path: 'allusers',
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
+      },
+      {
+        path: 'addclass',
+        element: <AdminRoute><AddClass></AddClass></AdminRoute>
+      },
+      {
+        path: 'myclasses',
+        element: <AdminRoute><MyClasses></MyClasses></AdminRoute>
+      }
+    ]
+  }
+]);

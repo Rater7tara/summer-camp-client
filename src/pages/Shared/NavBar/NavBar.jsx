@@ -6,10 +6,12 @@ import { FcBusinessman } from "react-icons/fc";
 import { AuthContext } from '../../../providers/AuthProvider';
 import './NavBar.css';
 import useCart from '../../../hooks/useCart';
+import useAdmin from '../../../hooks/useAdmin';
 
 const NavBar = () => {
 
   const {user, logOut } = useContext(AuthContext);
+  const [isAdmin] = useAdmin();
 
   const [cart] = useCart();
 
@@ -28,7 +30,8 @@ const NavBar = () => {
     
 
     {user?.email ? <>
-      <li className='hover:bg-orange-500 rounded-md'><Link to="/dashboard">Dashboard</Link></li>
+      <li className='hover:bg-orange-500 rounded-md'><Link to='/dashboard'>Dashboard</Link></li>
+      
     </>
     :
     <Link to='/login'>
