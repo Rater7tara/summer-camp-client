@@ -11,6 +11,7 @@ import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
+import Payment from "../pages/Dashboard/Payment/Payment";
 import Home from "../pages/Home/Home/Home";
 import InstructorPage from "../pages/InstructorPage/InstructorPage/InstructorPage";
 import Login from "../pages/Login/Login/Login";
@@ -65,6 +66,11 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
           path: 'mycart',
           element: <MyCart></MyCart>
         },
+        {
+          path: 'payment',
+          element: <Payment></Payment>,
+        },
+        // Admin routes
         {
           path: 'allusers',
           element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
