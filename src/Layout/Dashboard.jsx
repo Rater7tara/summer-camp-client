@@ -2,11 +2,17 @@ import { FaShoppingCart, FaWallet, FaHome, FaCalendar, FaUsers, FaUserTie } from
 import { Outlet, NavLink } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useCart from "../hooks/useCart";
-import NavBar from "../pages/Shared/NavBar/NavBar";
+
 import { Helmet } from 'react-helmet-async';
+
+import { useContext } from "react";
+
+import { AuthContext } from '../providers/AuthProvider';
+import useAuth from "../hooks/useAuth";
 
 const Dashboard = () => {
     const [cart] = useCart();
+    const {user} = useAuth();
 
     // const isAdmin = true;
     const [isAdmin] = useAdmin();
@@ -27,6 +33,17 @@ const Dashboard = () => {
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-80 h-full bg-slate-950 text-white">
+                {user && (<>
+                            <div className="avatar d-flex justify-center mb-2">
+                                <div className="mask mask-circle w-32">
+                                    <img src={user.photoURL} alt="Avatar Tailwind CSS Component" />
+                                    
+                                </div>
+                                
+                            </div>
+                            <p className="text-center mb-10">{user.email}</p>
+                            </>
+                        )}
 
                     {
                         isAdmin ? <>
