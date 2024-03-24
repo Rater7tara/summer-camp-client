@@ -31,9 +31,9 @@ const AddClass = () => {
             if(imgRes.success){
                 const imgURL = imgRes.data.display_url;
                 const {name, available_seats, price} = data;
-                const newClass = {name, available_seats, dance_image:imgURL, instructor_name:user?.displayName, instructor_email:user?.email, price: parseFloat(price)}
+                const newClass = {name, available_seats, dance_image:imgURL, instructor_name:user?.displayName, instructor_email:user?.email, price, status: 'pending'}
                 console.log(newClass);
-                axiosSecure.post('/student', newClass, { status: 'pending' })
+                axiosSecure.post('/student', newClass)
                 .then(data =>{
                     console.log('after posting new class', data.data);
                     if(data.data.insertedId){

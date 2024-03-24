@@ -15,11 +15,12 @@ const SocialLogin = () => {
 
     const handleGoogleSignIn = () => {
         googleSignIn()
-            .then(result => {
-                const loggedInUser = result.user;
+            .then((userCredential) => {
+                const loggedInUser = userCredential.user;
                 console.log(loggedInUser);
-                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email }
-                fetch('https://summer-camp-server-git-main-rater7tara.vercel.app/users', {
+                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email };
+    
+                fetch('https://summer-camp-server-beige.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -31,13 +32,16 @@ const SocialLogin = () => {
                         navigate(from, { replace: true });
                     })
             })
-    }
+            .catch(error => {
+                console.error("Google Sign-In Error:", error);
+            });
+    };
 
     return (
         <div>
             <div className="divider"></div>
             <div className="w-full text-center my-4">
-                <button onClick={handleGoogleSignIn} className="btn btn-circle btn-outline">
+                <button onClick={handleGoogleSignIn} className="btn bg-blue-300 btn-circle btn-outline">
                     <FaGoogle></FaGoogle>
                 </button>
             </div>

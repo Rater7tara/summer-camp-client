@@ -1,15 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Input, Ripple, initTE } from "tw-elements";
-initTE({ Input, Ripple, }, true);
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { BsFillEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
 import { Helmet } from 'react-helmet-async';
 import "@lottiefiles/lottie-player";
 import login from '../../../assets/login.json';
 import Lottie from "lottie-react";
 import Swal from 'sweetalert2'
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
+
+initTE({ Input, Ripple }, true);
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
@@ -18,8 +19,12 @@ const Login = () => {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || "/";
-
+    
+    // State for form input values
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+
 
     const handleLogin = event => {
         event.preventDefault();
@@ -70,27 +75,25 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" name="email" placeholder="email" className="input input-bordered w-full" />
+                                    <input type="email" name="email" placeholder="email" className="input input-bordered w-full"
+                                    autoComplete='off' />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <div className="input-group">
-                                        <input
+                                    <div className="input-group password-input">
+                                    <input
                                             type={showPassword ? "text" : "password"}
                                             name="password"
                                             placeholder="password"
                                             className="input input-bordered w-full"
+                                            autoComplete='off'
                                         />
-                                        <button
-                                            type="button"
-                                            className="btn bg-blue-100"
-                                            onClick={handleTogglePasswordVisibility}
-                                        >
-                                            {showPassword ? <FaEyeSlash /> : <FaEye />}
-                                        </button>
-                                    </div>
+                                            <span className="eye-icon" onClick={handleTogglePasswordVisibility}>
+                                                {showPassword ? <BsFillEyeSlashFill /> : <BsFillEyeFill />}
+                                            </span>
+                                        </div>
                                     <label className="label">
                                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                     </label>

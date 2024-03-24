@@ -6,7 +6,7 @@ const Cover = () => {
     return (
         <Parallax
         blur={{ min: -15, max: 15 }}
-        bgImage={img}
+        bgImage={'https://iili.io/JARnmc7.jpg'}
         bgImageAlt="the intructor"
         strength={100}
     >

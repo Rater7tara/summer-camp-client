@@ -5,7 +5,7 @@ const useInstructor = () => {
     // const [instructors, setInstructors] = useState([]);
     // const [loading, setLoading] = useState(true);
     // useEffect(() => {
-    //     fetch('https://summer-camp-server-git-main-rater7tara.vercel.app/student')
+    //     fetch('https://summer-camp-server-beige.vercel.app/student')
     //         .then(res => res.json())
     //         .then(data => {
     //             setInstructors(data);
@@ -15,7 +15,7 @@ const useInstructor = () => {
     const {data: instructors = [], isLoading: loading, refetch} = useQuery({
         queryKey: ['instructors'],
         queryFn: async() =>{
-            const res = await fetch('https://summer-camp-server-git-main-rater7tara.vercel.app/student');
+            const res = await fetch('https://summer-camp-server-beige.vercel.app/student');
             return res.json();
         }
     })

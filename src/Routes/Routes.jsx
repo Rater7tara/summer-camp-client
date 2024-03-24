@@ -4,35 +4,43 @@ import {
 } from "react-router-dom";
 import Dashboard from "../Layout/Dashboard";
 import ErrorPage from "../Layout/ErrorPage";
-import LoginLayout from "../Layout/LoginLayout";
 import Main from "../Layout/Main";
 import ClassesPage from "../pages/ClassesPage/ClassesPage/ClassesPage";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
-// import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import DashHome from "../pages/Dashboard/DashHome/DashHome";
 import ManageClass from "../pages/Dashboard/ManageClass/ManageClass";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
-import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import Home from "../pages/Home/Home/Home";
 import InstructorPage from "../pages/InstructorPage/InstructorPage/InstructorPage";
 import Login from "../pages/Login/Login/Login";
 import Register from "../pages/Login/Register/Register";
-import AdminRoute from "./AdminRoute";
-import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import AdminRoute from "./PrivateRoute/AdminRoute";
+import InstructorRoute from "./PrivateRoute/InstructorRoute";
+import StudentRoute from "./PrivateRoute/StudentRoute";
+
 
 
 export const router = createBrowserRouter([
   {
     path: '/',
-    element: <LoginLayout></LoginLayout>,
+    element: <Main></Main>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
-        element: <Navigate to="/home"></Navigate>
+        element: <Home></Home>
+      },
+      {
+        path: 'instructors',
+        element: <InstructorPage></InstructorPage>
+      },
+      {
+        path: 'classes',
+        element: <ClassesPage></ClassesPage>
       },
       {
         path: 'login',
@@ -44,43 +52,30 @@ export const router = createBrowserRouter([
       }
     ]
   },
-  {
-    path: "/",
-    element: <Main></Main>,
-    children: [
-      {
-        path: '/home',
-        element: <Home></Home>
-      },
-      {
-        path: '/instructors',
-        element: <InstructorPage></InstructorPage>
-      },
-      {
-        path: '/classes',
-        element: <ClassesPage></ClassesPage>
-      }
-    ]
-  },
+
   {
     path: 'dashboard',
-    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    element: <Dashboard></Dashboard>,
     children: [
       {
+        path:'home',
+        element:<DashHome></DashHome>
+      },
+      {
         path: 'mycart',
-        element: <MyCart></MyCart>
+        element: <StudentRoute><MyCart></MyCart></StudentRoute> 
       },
       {
-        path: 'payment',
-        element: <Payment></Payment>,
+        path: 'payment/:id',
+        element:<StudentRoute><Payment></Payment></StudentRoute>,
       },
       {
-        path: 'paymenthistory',
-        element:<PaymentHistory></PaymentHistory>,
+        path: 'payment/history',
+        element:<StudentRoute><PaymentHistory></PaymentHistory></StudentRoute>,
       },
       {
-        path: 'manageclass',
-        element:<ManageClass></ManageClass>,
+        path: 'manage-classes',
+        element:<AdminRoute><ManageClass></ManageClass></AdminRoute>,
       },
       // Admin routes
       // {
@@ -88,16 +83,16 @@ export const router = createBrowserRouter([
       //   element: <AdminRoute><AdminHome></AdminHome></AdminRoute>,
       // },
       {
-        path: 'allusers',
+        path: 'manage-users',
         element: <AdminRoute><AllUsers></AllUsers></AdminRoute>,
       },
       {
-        path: 'addclass',
-        element: <AdminRoute><AddClass></AddClass></AdminRoute>
+        path: 'add-class',
+        element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
       },
       {
         path: 'myclasses',
-        element: <AdminRoute><MyClasses></MyClasses></AdminRoute>
+        element: <InstructorRoute><MyClasses></MyClasses></InstructorRoute> 
       }
     ]
   }

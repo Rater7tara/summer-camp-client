@@ -9,7 +9,7 @@ import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2'
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { BsFillEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
 
 
 const Register = () => {
@@ -30,7 +30,7 @@ const Register = () => {
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const saveUser = { name: data.name, email: data.email, photo:data.photoURL }
-                        fetch('https://summer-camp-server-git-main-rater7tara.vercel.app/users', {
+                        fetch('https://summer-camp-server-beige.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'
@@ -121,25 +121,27 @@ const Register = () => {
                                         <label className="label">
                                             <span className="label-text">Password</span>
                                         </label>
-                                        <label className="input-group">
-                                            <input type={showPassword ? "text" : "password"}  {...register("password", {
-                                                required: true,
-                                                minLength: 6,
-                                                maxLength: 20,
-                                                pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/
-                                            })} placeholder="password" className="input input-bordered w-full" />
-                                            <button
-                                                type="button"
-                                                className="btn bg-blue-100"
-                                                onClick={handleTogglePasswordVisibility}
-                                            >
-                                                {showPassword ? <FaEyeSlash /> : <FaEye />}
-                                            </button>
-                                            {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
-                                            {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
-                                            {errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 6 characters</p>}
-                                            {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Capital letter and one Special character.</p>}
-                                        </label>
+                                        <div className="input-group password-input">
+                                            <input
+                                                type={showPassword ? "text" : "password"}
+                                                {...register("password", {
+                                                    required: true,
+                                                    minLength: 6,
+                                                    maxLength: 20,
+                                                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/
+                                                })}
+                                                placeholder="password"
+                                                className={`input input-bordered w-full ${showPassword ? 'password-visible' : ''}`}
+                                            />
+                                            <span className="eye-icon z-10 bg-opacity-30 bg-black" onClick={handleTogglePasswordVisibility}>
+                                                {showPassword ? <BsFillEyeSlashFill ></BsFillEyeSlashFill> : <BsFillEyeFill></BsFillEyeFill>}
+                                            </span>
+                                        </div>
+                                        {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
+                                        {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
+                                        {errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 6 characters</p>}
+                                        {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Capital letter and one Special character.</p>}
+
 
                                     </div>
                                 </div>

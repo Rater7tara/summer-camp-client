@@ -4,7 +4,7 @@ import PopularClass from '../../PopularClass/PopularClass';
 const Popular = () => {
     const [classes, setClasses] = useState([]);
     useEffect(() =>{
-        fetch('https://summer-camp-server-git-main-rater7tara.vercel.app/student')
+        fetch('https://summer-camp-server-beige.vercel.app/student')
         .then(res => res.json())
         .then(data => {
             const filteredData = data.filter((item) => item.number_of_students !== '');

@@ -5,7 +5,7 @@ import useAuth from './useAuth';
 
 
 const axiosSecure = axios.create({
-  baseURL: 'https://summer-camp-server-git-main-rater7tara.vercel.app', 
+  baseURL: 'https://summer-camp-server-beige.vercel.app', 
 });
 
 const useAxiosSecure = () => {
@@ -15,10 +15,10 @@ const useAxiosSecure = () => {
   
 
   useEffect(() => {
+    const token = localStorage.getItem('access-token');
     axiosSecure.interceptors.request.use((config) => {
-      const token = localStorage.getItem('access-token');
       if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+        config.headers.authorization = `Bearer ${token}`;
       }
       return config;
     });
@@ -33,7 +33,7 @@ const useAxiosSecure = () => {
         return Promise.reject(error);
       }
     );
-  }, [logOut, navigate, axiosSecure]);
+  }, [logOut, navigate]);
 
   return [axiosSecure];
 };

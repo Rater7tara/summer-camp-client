@@ -19,7 +19,7 @@ const ManageClass = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://summer-camp-server-git-main-rater7tara.vercel.app/students/${item._id}`, {
+                fetch(`https://summer-camp-server-beige.vercel.app/students/${item._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -37,12 +37,13 @@ const ManageClass = () => {
         })
     }
     return (
-        <div className='w-full'>
-            <SectionTitle heading="My Classes" subHeading="Wanna Change Something?"></SectionTitle>
+        <div className='w-full bg-base-200'>
+            
 
             <Helmet>
                 <title>DancingDream | My Cart</title>
             </Helmet>
+            <SectionTitle heading="My Classes" subHeading="Wanna Change Something?"></SectionTitle>
               <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
                 <h3 className="text-3xl">Total Items: {instructors.length}</h3>
             </div>

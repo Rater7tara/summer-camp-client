@@ -22,7 +22,7 @@ const MyClasses = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://summer-camp-server-git-main-rater7tara.vercel.app/students/${item._id}`, {
+                fetch(`https://summer-camp-server-beige.vercel.app/students/${item._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -86,7 +86,7 @@ const MyClasses = () => {
     };
 
     return (
-        <div className='w-full'>
+        <div className='w-full bg-base-200'>
             <SectionTitle heading="My Classes" subHeading="Wanna Change Something?" />
             <Helmet>
                 <title>DancingDream | My Cart</title>
@@ -102,7 +102,7 @@ const MyClasses = () => {
                             <th>Classes</th>
                             <th>Class Name</th>
                             <th>Instructor Name</th>
-                            <th>Email</th>
+                            <th>Instructor Email</th>
                             <th>Available Seat</th>
                             <th>Price</th>
                             <th>Action</th>
@@ -126,15 +126,6 @@ const MyClasses = () => {
                                 <td>{item.instructor_email}</td>
                                 <td>{item.available_seats}</td>
                                 <td>${item.price}</td>
-                                <td>
-                                    <button
-                                        onClick={() => handleDelete(item)}
-                                        className="btn btn-info btn-sm"
-                                        disabled={deletedItems.includes(item._id)}
-                                    >
-                                        Delete
-                                    </button>
-                                </td>
                                 <td>
                                     <button
                                         onClick={() => handleApprove(item)}
